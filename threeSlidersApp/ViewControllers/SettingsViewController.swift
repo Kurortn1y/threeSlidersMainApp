@@ -74,7 +74,7 @@ final class SettingsViewController: UIViewController {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let value = Float(textField.text ?? "") , (0...1).contains(value) else {
+        guard let value = Float(textField.text ?? "") ?? nil , (0...1).contains(value) else {
             showAlert(
                 with: "Не верный формат",
                 message: "Введите число от 0 до 1"
@@ -93,7 +93,6 @@ final class SettingsViewController: UIViewController {
                 blueCurrentValue.text = formatSliderValue(value)
             }
             updateColor()
-        
     }
     
     private func mainViewSetup() {
